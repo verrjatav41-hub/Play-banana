@@ -24,10 +24,19 @@ jobs:
       - name: Install Dependencies
         run: npm install --force
 
-      - name: Build Android
+      # STEP 1: Pehle Web Assets Build Karein (Ye Missing Tha)
+      - name: Build Web Project
+        run: npm run build
+
+      # STEP 2: Ab Capacitor Sync Karein (Taaki dist folder android mein jaye)
+      - name: Sync Capacitor
         run: |
           npx cap add android || true
-          npx cap copy android
+          npx cap sync android
+
+      # STEP 3: Ab APK Generate Karein
+      - name: Build Android
+        run: |
           cd android
           chmod +x gradlew
           ./gradlew assembleDebug
