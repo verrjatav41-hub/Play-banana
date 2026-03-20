@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
-    "capacitor:build": "npm run build && npx cap copy"
+    "precapacitor:build": "mkdir -p dist && touch dist/.keep",
+    "capacitor:build": "npm run build && npx cap sync android"
   },
   "dependencies": {
     "@capacitor-community/admob": "^8.0.0",
