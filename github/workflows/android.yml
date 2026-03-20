@@ -26,7 +26,8 @@ jobs:
 
       # STEP 1: Pehle Web Assets Build Karein (Ye Missing Tha)
       - name: Build Web Project
-        run: npm run build
+  run: npm run build
+  working-directory: ./Play-banana # Agar aapka sara code is folder ke andar hai
 
       # STEP 2: Ab Capacitor Sync Karein (Taaki dist folder android mein jaye)
       - name: Sync Capacitor
